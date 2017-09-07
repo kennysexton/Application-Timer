@@ -9,41 +9,28 @@ char randomChar();
 #include <stdlib.h>
 #include <time.h>
 
-int i;
+int i, j;
 
 
 int main() {
-	FILE *fp1,*fp2,*fp3,*fp4,*fp5,*fp6,*fp7,*fp8,*fp9,*fp10;
+	FILE *fp;
 
 	// For random number generation
 	int seed = time(NULL);
 	srand(seed);
 
-	// Create 10 records
-	fp1 = fopen("record1.txt", "a");
-	fp2 = fopen("record2.txt", "a");
-	fp3 = fopen("record3.txt", "a");
-	fp4 = fopen("record4.txt", "a");
-	fp5 = fopen("record5.txt", "a");
-	fp6 = fopen("record6.txt", "a");
-	fp7 = fopen("record7.txt", "a");
-	fp8 = fopen("record8.txt", "a");
-	fp9 = fopen("record9.txt", "a");
-	fp10 = fopen("record10.txt", "a");
+	// Create a blank record
+	fp = fopen("record.txt", "w");
 
 	// Populates the records with random character sequences
-	for(i=0; i<120; i++){
-		fprintf(fp1, "%c", randomChar());
-		fprintf(fp2, "%c", randomChar());
-		fprintf(fp3, "%c", randomChar());
-		fprintf(fp4, "%c", randomChar());
-		fprintf(fp5, "%c", randomChar());
-		fprintf(fp6, "%c", randomChar());
-		fprintf(fp7, "%c", randomChar());
-		fprintf(fp8, "%c", randomChar());
-		fprintf(fp9, "%c", randomChar());
-		fprintf(fp10, "%c", randomChar());
+	for(i=0; i<10; i++){
+		for(j=0; j<120; j++){
+			fprintf(fp, "%c", randomChar());
+		}
+		fprintf(fp, "\n");
 	}
+	//read a character sequence
+
 }
 
 /*--------------Functions--------------*/
