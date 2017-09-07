@@ -4,12 +4,17 @@
 
 /* Function Declarations */
 char randomChar();
+int randomLine();
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-int i, j;
+int i, j, k, count, runNum;
+char line[120];
+char megamatrix[10][120]; // 1:1 map of the record file
+char selectArray[120];
 
 
 int main() {
@@ -19,21 +24,59 @@ int main() {
 	int seed = time(NULL);
 	srand(seed);
 
-	// Create a blank record
-	fp = fopen("record.txt", "w");
+	for(k=0; k<1000; k++){
 
-	// Populates the records with random character sequences
-	for(i=0; i<10; i++){
-		for(j=0; j<120; j++){
-			fprintf(fp, "%c", randomChar());
+		// Create a blank record
+		fp = fopen("record.txt", "w+");
+
+		// Populates the records with random character sequences
+		for(i=0; i<10; i++){
+			for(j=0; j<120; j++){
+				megamatrix[i][j] = randomChar();   // Store the same file map to our MegaMatrix
+				fprintf(fp, "%c", megamatrix[i][j]);
+			}
+			fprintf(fp, "\n");
 		}
-		fprintf(fp, "\n");
-	}
-	//read a character sequence
+		rewind(fp); //reset file pointer
+		i = 1; // reset i
 
+		count=randomLine();
+		//printf("Count: %d\n", count);
+
+		//read a random character sequence
+		while((fgets(line, 122, fp) != NULL) && i < count ){
+			 i++;	
+		}
+		//printf("%s", line);
+
+		//extract random line from Mega Matrix
+		for(j=0; j< 120; j++){
+			i = count;
+			selectArray[j] = megamatrix[count-1][j]; 
+		}
+		selectArray[120] ='\n';   // Required to match string read from file
+		
+		//printf("%s", selectArray);
+
+		// Compare
+		if(strcmp(selectArray,line) == 0){
+			//printf("%s\n", "successful run");	
+		}
+		else {   // If for some reason the read does not match the document, they program will close
+			printf("%s\n", "arrays are NOT equal");
+			exit(0);
+		}
+		runNum++;
+	} // End reapeat forloop
+	printf("made it! Program ran %d times", runNum);
 }
 
 /*--------------Functions--------------*/
+int randomLine(){  // Random number 1-10
+	return rand() % 10 + 1;
+}
+
+
 char randomChar(){
 	int charLookup= rand() % 51;
 
