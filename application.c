@@ -15,6 +15,9 @@ int i, j, k, count, runNum;
 
 
 
+// for(i=0; i < 10; i++)
+// 	// 	megamatrix[i] = (char *)malloc(121 * sizeof(char));
+
 int main() {
 	FILE *fp;
 
@@ -22,12 +25,9 @@ int main() {
 	int seed = time(NULL);
 	srand(seed);
 
-	char * line = (char *) malloc(121 * sizeof(char));  // + 1 for '\n' character at i[120]
-	char ** megamatrix = (char **)malloc(10 * sizeof(char *)); // 1:1 map of the record file
-	for(i=0; i < 10; i++){
-		megamatrix[i] = (char *)malloc(121 * sizeof(char));
-	}
-	char * selectArray = (char *) malloc(121 * sizeof(char));
+	char line[121];  // + 1 for '\n' character at i[120]
+	char megamatrix[10][121]; // 1:1 map of the record file
+	char selectArray[121];   // + 1 for '\n' character at i[120]
 
 	for(k=0; k<10000; k++){
 
@@ -37,11 +37,9 @@ int main() {
 			// Populates the records with random character sequences
 		for(i=0; i<10; i++){
 			for(j=0; j<120; j++){
-				//printf("About to hit megamatrix @ i:%d j:%d on try %d", i, j, runNum);
 				megamatrix[i][j] = randomChar();   // Store the same file map to our MegaMatrix
 				fprintf(fp, "%c", megamatrix[i][j]);
 			}
-			//printf("About to hit megamatrix2 @ i:%d j:%d on try %d", i, j, runNum);
 			megamatrix[i][120] = '\n';
 			fprintf(fp, "\n");
 		}
@@ -52,39 +50,23 @@ int main() {
 		//printf("Count: %d\n", count);
 
 			//read a random character sequence
-		while((fgets(line, 122, fp) != NULL) && i < count ){
+		while((fgets(line, 122, fp) != NULL) && i < count + 1 ){
 			 i++;
 		}
-		//printf("%s", line);
-		 // printf("Line 119: %c ", line[119]);
-		 // printf("Line 120: %c ", line[120]);
-		 // printf("Line 121: %c ", line[121]);
-		 // printf("Line 122: %c ", line[122]);
-		//printf("Line length: %lu",sizeof(line));
-
-			//extract random line from Mega Matrix
+					//extract random line from Mega Matrix
 		for(j=0; j< 121; j++){
 			i = count;
-			//printf("About to hit megamatrix3 @ count:%d j:%d on try %d", count-1, j, runNum);
-			selectArray[j] = megamatrix[count-1][j]; 
+			selectArray[j] = megamatrix[count][j]; 
 		}
-		//selectArray[121] = '\0'; 
-
-		//printf("%s", selectArray);
-		//printf("select length: %lu",sizeof(selectArray));
-
 			// Compare
-		if(strcmp(selectArray,line) == 0){
-			//printf("%s\n", "successful run");	
-		}
-		else {   // If for some reason the read does not match the document, they program will close
+		if(strcmp(selectArray,line) != 0){  // If for some reason the read does not match the document, the program will close
 			printf("%s\n", "Error-- arrays are NOT equal");
+			printf("Failed on run %d\n", k);
 			exit(0);
 		}
-		runNum++;
 		fclose(fp);
 	} // End reapeat forloop
-	printf("made it! Program ran %d times", runNum);
+	printf("made it! Program ran %d times", k);
 }
 
 /*--------------Functions--------------*/
@@ -92,8 +74,8 @@ char randomChar(){
 	return rand() % 58 + 65; // ASCII characters 65-122
 }
 
-int randomLine(){  // Random number 1-10
-	return rand() % 10 + 1;
+int randomLine(){  // Random number 0-9
+	return rand() % 10;
 }
 
 
