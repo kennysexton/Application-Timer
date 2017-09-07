@@ -12,9 +12,7 @@ int randomLine();
 #include <string.h>
 
 int i, j, k, count, runNum;
-char line[122];  // + 1 for '\n' character at i[120]
-char megamatrix[10][120]; // 1:1 map of the record file
-char selectArray[122];
+
 
 
 int main() {
@@ -24,17 +22,27 @@ int main() {
 	int seed = time(NULL);
 	srand(seed);
 
-	for(k=0; k<1000; k++){
+	char * line = (char *) malloc(121 * sizeof(char));  // + 1 for '\n' character at i[120]
+	char ** megamatrix = (char **)malloc(10 * sizeof(char *)); // 1:1 map of the record file
+	for(i=0; i < 10; i++){
+		megamatrix[i] = (char *)malloc(121 * sizeof(char));
+	}
+	char * selectArray = (char *) malloc(121 * sizeof(char));
 
-		// Create a blank record
+	for(k=0; k<10000; k++){
+
+			// Create a blank record
 		fp = fopen("record.txt", "w+");
 
-		// Populates the records with random character sequences
+			// Populates the records with random character sequences
 		for(i=0; i<10; i++){
 			for(j=0; j<120; j++){
+				//printf("About to hit megamatrix @ i:%d j:%d on try %d", i, j, runNum);
 				megamatrix[i][j] = randomChar();   // Store the same file map to our MegaMatrix
 				fprintf(fp, "%c", megamatrix[i][j]);
 			}
+			//printf("About to hit megamatrix2 @ i:%d j:%d on try %d", i, j, runNum);
+			megamatrix[i][120] = '\n';
 			fprintf(fp, "\n");
 		}
 		rewind(fp); //reset file pointer
@@ -43,26 +51,29 @@ int main() {
 		count=randomLine();
 		//printf("Count: %d\n", count);
 
-		//read a random character sequence
+			//read a random character sequence
 		while((fgets(line, 122, fp) != NULL) && i < count ){
-			 i++;	
+			 i++;
 		}
 		//printf("%s", line);
-		// printf("Line 121: %d", line[120]);
-		// printf("Line 122: %d", line[121]);
+		 // printf("Line 119: %c ", line[119]);
+		 // printf("Line 120: %c ", line[120]);
+		 // printf("Line 121: %c ", line[121]);
+		 // printf("Line 122: %c ", line[122]);
 		//printf("Line length: %lu",sizeof(line));
 
-		//extract random line from Mega Matrix
-		for(j=0; j< 120; j++){
+			//extract random line from Mega Matrix
+		for(j=0; j< 121; j++){
 			i = count;
+			//printf("About to hit megamatrix3 @ count:%d j:%d on try %d", count-1, j, runNum);
 			selectArray[j] = megamatrix[count-1][j]; 
 		}
-		selectArray[120] ='\n';   // Required to match string read from file
-		selectArray[121] = '\0'; 
+		//selectArray[121] = '\0'; 
+
 		//printf("%s", selectArray);
 		//printf("select length: %lu",sizeof(selectArray));
 
-		// Compare
+			// Compare
 		if(strcmp(selectArray,line) == 0){
 			//printf("%s\n", "successful run");	
 		}
@@ -71,6 +82,7 @@ int main() {
 			exit(0);
 		}
 		runNum++;
+		fclose(fp);
 	} // End reapeat forloop
 	printf("made it! Program ran %d times", runNum);
 }
