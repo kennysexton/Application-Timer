@@ -19,13 +19,18 @@ repeat process many times {
    }
    
     // Pick a random line to read
-   randomLine();
+	 randomLine();
    move filepointer to correct position
    fgets that line 
-  
-  
+   
+    // extract a smaller line array from the storage array
+   for(i=0 : 121) {
+      lineStorage[i] = storage[randomLine][i] 
+   }
+   
+   use strcmp() to compare the read file to the stored line
+   exit to program if (strcmp() != 0)
 }
-
 ```
 #### Functions
 
