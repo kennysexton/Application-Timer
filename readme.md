@@ -29,6 +29,8 @@ repeat process many times {
    
    use strcmp() to compare the read file to the stored line
    exit to program if (strcmp() != 0)
+   
+   close file
 }
 ```
 #### Functions
@@ -37,5 +39,23 @@ repeat process many times {
 
 `randomLine()`  - picks a random number 0-9 which will then detrmine what line to read
 
+
+
 ### Timer
+
+## Testing
+
+- [X] create a file
+- [X] write a single line
+- [X] put ten sequences in the file
+- [X] check that application will generate new random sequences on every run
+- [X] read from file succesfully
+- [X] run strcmp & print both arrays to the screen
+- [X] confirm that reading matches the file line
+
+- [ ] create timer 1
+- [ ] check that outputs make sense
+- [ ] create timer 2
+
+
 
