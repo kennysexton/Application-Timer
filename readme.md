@@ -1,5 +1,4 @@
 # Project1
-CIS 3207
 by Kenny Sexton
 
 ## Psudo Code
@@ -37,4 +36,6 @@ repeat process many times {
 `randomChar()`  - generates a random number,  convert that number to ASCII equivilet and returns that char
 
 `randomLine()`  - picks a random number 0-9 which will then detrmine what line to read
+
+### Timer
 
