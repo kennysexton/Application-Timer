@@ -2,7 +2,7 @@
 by Kenny Sexton
 
 ## Psudo Code
-----
+
 
 #### Application
 ```
