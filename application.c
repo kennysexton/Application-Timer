@@ -13,15 +13,10 @@ int randomLine();
 
 int i, j, k, count, runNum;
 
-
-
-// for(i=0; i < 10; i++)
-// 	// 	megamatrix[i] = (char *)malloc(121 * sizeof(char));
-
 int main() {
 	FILE *fp;
 
-	// For random number generation
+		// For random number generation
 	int seed = time(NULL);
 	srand(seed);
 
@@ -53,7 +48,7 @@ int main() {
 		while((fgets(line, 122, fp) != NULL) && i < count + 1 ){
 			 i++;
 		}
-					//extract random line from Mega Matrix
+			//extract the random line from Mega Matrix
 		for(j=0; j< 121; j++){
 			i = count;
 			selectArray[j] = megamatrix[count][j]; 
