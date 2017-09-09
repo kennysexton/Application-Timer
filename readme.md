@@ -18,7 +18,7 @@ repeat process many times {
    }
    
     // Pick a random line to read
-	 randomLine();
+   randomLine();
    move filepointer to correct position
    fgets that line 
    
@@ -57,5 +57,11 @@ repeat process many times {
 - [ ] check that outputs make sense
 - [ ] create timer 2
 
+### Questions
 
+1.) What are the mean and standard deviation values for your observations?
 
+2.) What is the 95% confidence level interval?
+
+3.) Why shouldn't it always take exactly the same amount of time to perform this simple action of
+program startup?
