@@ -1,9 +1,10 @@
 # Project1
 by Kenny Sexton
 
-## Psudo Code
+### Psudo Code
+___
 
-### Application
+#### Application
 ```
 repeat process many times {
   open up a file (w+ for read and write)
@@ -33,7 +34,7 @@ repeat process many times {
    close file
 }
 ```
-#### Functions
+##### Functions
 
 `randomChar()`  - generates a random number,  convert that number to ASCII equivilet and returns that char
 
@@ -41,10 +42,10 @@ repeat process many times {
 
 
 
-### Timer
+#### Timer
 
-## Testing
-
+### Testing
+___
 - [X] create a file
 - [X] write a single line
 - [X] put ten sequences in the file
@@ -58,7 +59,7 @@ repeat process many times {
 - [ ] create timer 2
 
 ### Questions
-
+___
 1.) What are the mean and standard deviation values for your observations?
 
 2.) What is the 95% confidence level interval?
