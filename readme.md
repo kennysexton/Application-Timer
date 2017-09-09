@@ -1,10 +1,10 @@
 # Project1
 by Kenny Sexton
 
-### Psudo Code
-___
+> ### Psudo Code
+----
 
-#### Application
+> #### Application
 ```
 repeat process many times {
   open up a file (w+ for read and write)
@@ -44,7 +44,7 @@ repeat process many times {
 
 #### Timer
 
-### Testing
+> ### Testing
 ___
 - [X] create a file
 - [X] write a single line
@@ -58,7 +58,7 @@ ___
 - [ ] check that outputs make sense
 - [ ] create timer 2
 
-### Questions
+> ### Questions
 ___
 1.) What are the mean and standard deviation values for your observations?
 
