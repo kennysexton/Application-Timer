@@ -1,10 +1,10 @@
 # Project1
 by Kenny Sexton
 
-> ### Psudo Code
+### Psudo Code
 ----
 
-> #### Application
+#### Application
 ```
 repeat process many times {
   open up a file (w+ for read and write)
@@ -44,8 +44,8 @@ repeat process many times {
 
 #### Timer
 
-> ### Testing
-___
+### Testing
+
 - [X] create a file
 - [X] write a single line
 - [X] put ten sequences in the file
@@ -58,10 +58,10 @@ ___
 - [ ] check that outputs make sense
 - [ ] create timer 2
 
-> ### Questions
-___
-1.) What are the mean and standard deviation values for your observations?
+### Questions
 
+1.) What are the mean and standard deviation values for your observations?
+> The mean is ___
 2.) What is the 95% confidence level interval?
 
 3.) Why shouldn't it always take exactly the same amount of time to perform this simple action of
