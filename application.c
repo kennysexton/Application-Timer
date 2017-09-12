@@ -68,7 +68,13 @@ int main() {
 			exit(0);
 		}
 		fclose(fp);
-	} // End reapeat forloop
+	} // End for loop
+
+		// Delete record.txt
+	if(remove("record.txt") != 0){
+		printf("failed to remove record.txt\n");
+	}
+
 	printf("made it! Program ran %d times\n", k);
 }
 

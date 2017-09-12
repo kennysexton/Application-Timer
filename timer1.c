@@ -1,3 +1,7 @@
+// Kenneth Sexton
+// Cis 3207
+// Project 1
+
 #include <stdio.h>
 #include <sys/time.h>
 #include <unistd.h>
@@ -16,8 +20,9 @@ int main(){
 	fp = fopen("timer1.txt", "w");    // Creates or clears the file
 	fclose(fp);
 	
-	for(i=0; i<20; i++){
-		// Create a blank record
+	for(i=0; i<2; i++){
+		
+			// write a start timestamp
 		fp = fopen("timer1.txt", "a");
 		fprintf(fp, "%ld\n", timestamp());
 		fclose(fp);
