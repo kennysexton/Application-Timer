@@ -21,8 +21,7 @@ int main() {
 
 		// Record Timestamp
     timep = fopen("timer1.txt", "a");
-
-	fprintf(timep, "End   time (seconds): %ld\n", timestamp());
+	fprintf(timep, "%ld\n", timestamp());
 	fclose(timep);
 
 		// For random number generation
@@ -70,7 +69,7 @@ int main() {
 		}
 		fclose(fp);
 	} // End reapeat forloop
-	printf("made it! Program ran %d times", k);
+	printf("made it! Program ran %d times\n", k);
 }
 
 /*--------------Functions--------------*/
