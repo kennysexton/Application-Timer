@@ -10,11 +10,20 @@ int randomLine();
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <sys/time.h>
 
 int i, j, k, count, runNum;
+struct timeval end;
 
 int main() {
-	FILE *fp;
+	FILE *fp, *timep;
+
+		// Record Timestamp
+    timep = fopen("timer1.txt", "a");
+
+	gettimeofday(&end, NULL);
+	fprintf(timep, "End   time (seconds): %ld\n", end.tv_sec);
+	fclose(timep);
 
 		// For random number generation
 	int seed = time(NULL);
@@ -24,7 +33,7 @@ int main() {
 	char megamatrix[10][121]; // 1:1 map of the record file
 	char selectArray[121];   // + 1 for '\n' character at i[120]
 
-	for(k=0; k<10000; k++){
+	for(k=0; k<50000; k++){
 
 			// Create a blank record
 		fp = fopen("record.txt", "w+");
