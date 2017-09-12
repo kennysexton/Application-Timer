@@ -5,6 +5,7 @@
 /* Function Declarations */
 char randomChar();
 int randomLine();
+unsigned long timestamp();
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,8 +22,7 @@ int main() {
 		// Record Timestamp
     timep = fopen("timer1.txt", "a");
 
-	gettimeofday(&end, NULL);
-	fprintf(timep, "End   time (seconds): %ld\n", end.tv_sec);
+	fprintf(timep, "End   time (seconds): %ld\n", timestamp());
 	fclose(timep);
 
 		// For random number generation
@@ -33,7 +33,7 @@ int main() {
 	char megamatrix[10][121]; // 1:1 map of the record file
 	char selectArray[121];   // + 1 for '\n' character at i[120]
 
-	for(k=0; k<50000; k++){
+	for(k=0; k<10000; k++){
 
 			// Create a blank record
 		fp = fopen("record.txt", "w+");
@@ -80,4 +80,10 @@ char randomChar(){
 
 int randomLine(){  // Random number 0-9
 	return rand() % 10;
+}
+
+unsigned long timestamp(){
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (1000000 * tv.tv_sec + tv.tv_usec);
 }
