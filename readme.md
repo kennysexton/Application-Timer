@@ -40,9 +40,29 @@ repeat process many times {
 
 `randomLine()`  - picks a random number 0-9 which will then detrmine what line to read
 
+`timeStamp()`  - Prints the current time in microseconds
 
 
-#### Timer
+
+#### Timer 1
+```
+for (i=0 : 100+){
+  open up files for writing
+  record timestamp
+  fork()
+  if (in child){
+    exec(./application)
+  }
+  else { // on parent
+    waitpid()
+  }
+  read start and end time files
+  subtract(end - start) and write to seperate file
+}
+```
+`timeStamp()`  - Prints the current time in microseconds
+
+#### Timer 2
 ```
 for (i=0 : 100+){
   open up files for writing
@@ -55,8 +75,19 @@ for (i=0 : 100+){
     waitpid()
   }
   
+  fork2()
+  if (in child){
+    exec(./application)
+  }
+  else { // on parent
+    waitpid()
+  }
+  read start and end time files
+  subtract(end - start) and write to seperate file
 }
 ```
+`timeStamp()`  - Prints the current time in microseconds
+
 ## Testing
 
 - [X] create a file
