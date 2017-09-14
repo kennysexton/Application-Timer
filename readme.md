@@ -97,19 +97,19 @@ for (i=0 : 100+){
 - [X] read from file succesfully
 - [X] run strcmp & print both arrays to the screen
 - [X] confirm that reading matches the file line
-
-- [ ] create timer 1
-- [ ] check outputs in excel
-- [ ] check that outputs make sense
-- [ ] create timer 2
+- [X] create timer 1
+- [X] check output
+- [X] create timer 2
+- [X] check output
 
 ## Questions
 
 1.) What are the mean and standard deviation values for your observations?
-> The mean is ___
+> Timer 1: Mean 643.69 Standard Deviation: 686.01
+> Timer 2: Mean 564.41 Standard Deviation: 447.35
 
 2.) What is the 95% confidence level interval?
-
+>Timer 1: 95.075 <br> Timer 2: 61.998 
 3.) Why shouldn't it always take exactly the same amount of time to perform this simple action of
 program startup?
 > The CPU has different tasks that are waiting on the execution queue.
