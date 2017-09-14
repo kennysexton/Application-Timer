@@ -120,4 +120,5 @@ program startup?
 
 
 ## Images
-<img>
+![](https://github.com/kennysexton/CIS-3207-Project1/blob/master/timer1_graph.jpg)
+![](https://github.com/kennysexton/CIS-3207-Project1/blob/master/timer2_graph.jpg)
