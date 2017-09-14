@@ -106,10 +106,14 @@ for (i=0 : 100+){
 
 1.) What are the mean and standard deviation values for your observations?
 > Timer 1: Mean 643.69 Standard Deviation: 686.01
+
 > Timer 2: Mean 564.41 Standard Deviation: 447.35
 
 2.) What is the 95% confidence level interval?
->Timer 1: 95.075 <br> Timer 2: 61.998 
+>Timer 1: 95.075
+
+>Timer 2: 61.998 
+
 3.) Why shouldn't it always take exactly the same amount of time to perform this simple action of
 program startup?
 > The CPU has different tasks that are waiting on the execution queue.
