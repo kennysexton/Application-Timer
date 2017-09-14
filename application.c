@@ -19,8 +19,9 @@ struct timeval end;
 int main() {
 	FILE *fp, *timep;
 
-		// Record Timestamp
-    timep = fopen("timer1.txt", "a");
+		// Record Timestamp for in timer txt file
+//    timep = fopen("timer1.txt", "a");		// Direct output to timer1.txt
+    timep = fopen("end.txt", "a");		// Direct output to timer2.txt
 	fprintf(timep, "%ld\n", timestamp());
 	fclose(timep);
 
