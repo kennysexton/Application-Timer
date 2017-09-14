@@ -1,7 +1,7 @@
 # Project1
 by Kenny Sexton
 
-## Psudo Code
+## Pseudo Code
 
 
 #### Application
@@ -38,7 +38,7 @@ repeat process many times {
 
 `randomChar()`  - generates a random number,  convert that number to ASCII equivilet and returns that char
 
-`randomLine()`  - picks a random number 0-9 which will then detrmine what line to read
+`randomLine()`  - picks a random number 0-9 which will then determine what line to read
 
 `timeStamp()`  - Prints the current time in microseconds
 
@@ -94,7 +94,7 @@ for (i=0 : 100+){
 - [X] write a single line
 - [X] put ten sequences in the file
 - [X] check that application will generate new random sequences on every run
-- [X] read from file succesfully
+- [X] read from file successfully
 - [X] run strcmp & print both arrays to the screen
 - [X] confirm that reading matches the file line
 - [X] create timer 1
