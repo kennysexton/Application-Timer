@@ -54,6 +54,7 @@ for (i=0 : 100+){
   else { // on parent
     waitpid()
   }
+  
 }
 ```
 ## Testing
@@ -80,3 +81,4 @@ for (i=0 : 100+){
 
 3.) Why shouldn't it always take exactly the same amount of time to perform this simple action of
 program startup?
+> The CPU has different tasks that are waiting on the execution queue.
