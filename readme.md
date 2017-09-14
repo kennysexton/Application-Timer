@@ -1,6 +1,8 @@
 # Project1
 by Kenny Sexton
 
+Complile application using `gcc application.c -o application`
+
 ## Pseudo Code
 
 
