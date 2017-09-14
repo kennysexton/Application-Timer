@@ -43,7 +43,19 @@ repeat process many times {
 
 
 #### Timer
-
+```
+for (i=0 : 100+){
+  open up files for writing
+  record timestamp
+  fork()
+  if (in child){
+    exec(./application)
+  }
+  else { // on parent
+    waitpid()
+  }
+}
+```
 ## Testing
 
 - [X] create a file
@@ -55,6 +67,7 @@ repeat process many times {
 - [X] confirm that reading matches the file line
 
 - [ ] create timer 1
+- [ ] check outputs in excel
 - [ ] check that outputs make sense
 - [ ] create timer 2
 
